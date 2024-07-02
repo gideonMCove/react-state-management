@@ -1,9 +1,16 @@
 ul {
   display: flex;
   flex-wrap: wrap;
+  border: 1px solid black
 }
 
 li {
   list-style: none;
   margin: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.list {
+  border: 1px solid black;
 }

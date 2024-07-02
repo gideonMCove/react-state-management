@@ -92,12 +92,11 @@ const App = () => {
 
   const handleAddFighter = (zombieFighter) => {
     if((money - zombieFighter.price) >= 0){
-    setTeam([...team, zombieFighter])
-    setMoney(money - zombieFighter.price)
-    setStrength(strength + zombieFighter.strength)
-    setAgility(agility + zombieFighter.agility)
-    // const strengthArray = team.strength.reduce((accumulator, currentValue) => accumulator + currentValue, 0)
-    // setStrength(strengthArray)
+        setTeam([...team, zombieFighter])
+        setMoney(money - zombieFighter.price)
+        setStrength(strength + zombieFighter.strength)
+        setAgility(agility + zombieFighter.agility)
+    
     } else{
       console.log("You do not have enough moneys")
     }
@@ -117,7 +116,7 @@ const App = () => {
 
   return (
     <div className ="App">
-      <h1>Hello world!</h1>
+      
       
       {team.length == 0 ? (
         <h1>Pick your team!
@@ -126,17 +125,17 @@ const App = () => {
         </h1>
         
       ) : (
-        <h1>{money}</h1>
+        <h1>Funds: ${money}</h1>
       )}
 
       {
         zombieFighters.map((zombieFighter, index) => (
           
           <ul className="list" key ={index}>
-            {zombieFighter.name}{"  "}
-            Price:{zombieFighter.price}{"  "}
-            Strength:{zombieFighter.strength}{"  "}
-            Agility:{zombieFighter.agility}{"  "}
+            <li>{zombieFighter.name}{"  "}</li>
+            <li> Price:{zombieFighter.price}{"  "}</li>
+            <li> Strength:{zombieFighter.strength}{"  "}</li>
+            <li> Agility:{zombieFighter.agility}{"  "}</li>
             <img src= {zombieFighter.img}/>
             <button onClick={()=>handleAddFighter(zombieFighter)}>ADD</button>
           </ul>
@@ -159,6 +158,7 @@ const App = () => {
         ))
       }
       <h1>Team's collective strength:{strength} </h1>
+      <h1>Team's collective Agility:{agility}</h1>
     </div>
   )
 }
