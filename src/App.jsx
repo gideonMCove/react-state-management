@@ -1,7 +1,4 @@
 import { useState, useEffect} from "react"
-
-
-
 const App = () => {
 
   const [team, setTeam] = useState([])
@@ -104,8 +101,9 @@ const App = () => {
   }
 
   const handleRemoveFighter = (filter) => {
+    console.log('filter', filter)
     function filterTeam (filter){
-      return team.filter(team => team.name == filter)
+      return team.filter(team => team.name != filter.name)
     }
      filteredTeam = filterTeam(filter)
     setTeam(filteredTeam)
@@ -132,7 +130,7 @@ const App = () => {
         zombieFighters.map((zombieFighter, index) => (
           
           <ul className="list" key ={index}>
-            <li>{zombieFighter.name}{"  "}</li>
+            <li className="bold">{zombieFighter.name}{"  "}</li>
             <li> Price:{zombieFighter.price}{"  "}</li>
             <li> Strength:{zombieFighter.strength}{"  "}</li>
             <li> Agility:{zombieFighter.agility}{"  "}</li>
